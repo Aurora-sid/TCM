@@ -4,6 +4,9 @@
     "pages/MainPage",
     "pages/Index",
     "pages/LoginPages/RegisterPage",
-    "pages/LoginPages/ForgetPasswordPage"
+    "pages/LoginPages/ForgetPasswordPage",
+    "pages/DectionPage",
+    "pages/TonguePage",
+    "pages/HistoryPage"
   ]
 }

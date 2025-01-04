@@ -153,7 +153,35 @@ struct MainPage {
         .backgroundColor('#FFFFE0')
         .padding(3);
 
-      }.width('100%')
+         Row() {
+           Button() {
+             Text('历史记录')
+               .fontSize(20)
+               .margin({ left: 90 })
+               .width('100%')
+           }
+           .width('80%')
+           .height('50%')
+           .margin({
+             left: 50,
+           })
+           .backgroundColor(Color.White)
+           .padding(3)
+           .onClick(() => {
+             router.pushUrl({
+               url: 'pages/HistoryPage'
+             }).catch((error: Error) => {
+               // 错误提示
+             })
+           })
+
+         }
+        .height('10%')
+        .width('100%')
+        .backgroundColor('#FFFF99')
+        .padding(3);
+      }
+      .width('100%')
       .backgroundColor('#FFFFE0')
       .height('100%');
     }

@@ -1,5 +1,6 @@
 // api.ts
 import http from '../utils/request';
+import * as Request from "D:/Huawei/TCM/entry/src/main/utils/request";
 // import { Result } from '../utils/request';
 interface LoginResponse {
   success?: boolean;

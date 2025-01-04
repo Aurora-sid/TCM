@@ -17,6 +17,12 @@
       },
       {
         "name": "ohos.permission.GET_NETWORK_INFO"
+      },
+      {
+        "name": "ohos.permission.READ_MEDIA"
+      },
+      {
+        "name": "ohos.permission.WRITE_MEDIA"
       }
     ],
     "abilities": [

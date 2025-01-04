@@ -8,7 +8,7 @@ const config = {//47.92.137.107
 }
 
 // 定义返回值类型
-interface Result<T = any> {
+export interface Result<T = any> {
   code: number;
   message: string;
   data: T;
