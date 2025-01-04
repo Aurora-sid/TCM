@@ -98,3 +98,13 @@ export const getCoupon=(username:string)=>{
   return http.get('coupon/getUserCoupon',{username})
 }
 
+
+export const 提交问卷=(username:string,sex:string,age:number,answers: string)=>{
+  return http.post('judge/writeQuestionnaire',{username,sex,age,answers})
+}
+
+export const 上传图片=(image)=>{
+  return http.post('judge/upload',{image})
+}
+
+

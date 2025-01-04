@@ -120,7 +120,12 @@ struct MainPage {
             .borderRadius(0)
             .onClick(() => {
               router.pushUrl({
-                url: 'pages/Index'
+                url: 'pages/Index',
+                params: {
+                  sex:this.性別,
+                  age:this.年齡,
+                  name:this.姓名
+                }
               }).catch((error: Error) => {
                 // 错误提示
               })

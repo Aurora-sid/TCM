@@ -2,13 +2,13 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosR
 
 // axios 请求配置
 const config = {//47.92.137.107
-  baseURL:'http://47.92.137.107:8080/',
+  baseURL:'http://127.0.0.1:8081/',
   // baseURL: '/api',
   timeout: 1000
 }
 
 // 定义返回值类型
-interface Result<T = any> {
+export interface Result<T = any> {
   code: number;
   message: string;
   data: T;
