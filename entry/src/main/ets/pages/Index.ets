@@ -1,3 +1,4 @@
+import router from '@system.router'
 @Entry
 @Component
 struct Index {
@@ -75,9 +76,9 @@ struct Index {
   build() {
     Column() {
       Row() {
-        // Image($r('app.media.left'))
-        //   .width(25)
-        //   .onClick(()=>{router.back()})
+         Image($r('app.media.left'))
+           .width(25)
+           .onClick(()=>{router.back()})
 
         Text("调查问卷")
           .fontSize(20)
