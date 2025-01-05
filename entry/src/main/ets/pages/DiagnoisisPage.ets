@@ -1,11 +1,14 @@
 import router from '@ohos.router';
 import {getName,getAge,getSex,getAnswer,getSymptom} from '../../utils/data'
+import{提交问卷}from'../../api/axios'
 @Entry
 @Component
 struct DiagnoisisPage {
   @State message: string = 'Hello World'
-
-
+  @State data: { result:string,suggestion:string } =  router.getParams()['data'] as { result:string,suggestion:string }
+  async aboutToAppear(){
+    await 提交问卷(getName(),getSex(),parseInt(getAge()),this.data.result,this.data.suggestion)
+  }
   build() {
     Row() {
       Column() {
@@ -103,15 +106,16 @@ struct DiagnoisisPage {
               top : 10
             })
             .width('20%')
-          Row() {
-            Text(getAge())
+          Column() {
+            Text(this.data.result)
+            Text(this.data.suggestion)
               .fontSize(20)
               .margin({
                 left: 15,
                 top : 10
               })
           }
-          .width('70%')
+
 
         }
         .height('20%')

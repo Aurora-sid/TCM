@@ -100,12 +100,20 @@ export const getCoupon=(username:string)=>{
 }
 
 
-export const 提交问卷=(username:string,sex:string,age:number,answers: string)=>{
-  return http.post('judge/writeQuestionnaire',{username,sex,age,answers})
+export const 提交问卷=(username:string,sex:string,age:number,answers: string,suggestion:string)=>{
+  return http.post('judge/writeQuestionnaire',{username,sex,age,answers,suggestion})
 }
 
 export const 上传图片=(image:string)=>{
   return http.get('judge/upload',{image})
 }
+
+export const 诊断=(username:string,sex:string,age:number,answers: string)=>{
+  return http.post('judge/judge',{username,sex,age,answers})
+}
+export const 获取历史记录=(username:string)=>{
+  return http.get('/judge/getQuestionnaireAnswers',{username})
+}
+
 
 

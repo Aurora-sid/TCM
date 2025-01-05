@@ -1,5 +1,6 @@
 import prompt from '@ohos.prompt';
 import router from '@ohos.router';
+import{诊断,提交问卷}from'../../api/axios'
 import {setName,setAge,setSex,setPersonalInfo,getPersonalInfo,getAnswer,getSymptom} from '../../utils/data'
 @Entry
 @Component
@@ -222,12 +223,16 @@ struct MainPage {
           })
           .backgroundColor(Color.White)
           .padding(3)
-          .onClick(() => {
+          .onClick(async () => {
            // getAnswer();
             setPersonalInfo(this.姓名+' '+this.性別+' '+this.年齡);
             console.info(getPersonalInfo() +' '+ getAnswer()+' ' + getSymptom());
-            router.pushUrl({
-              url: 'pages/DiagnoisisPage'
+           let result =  await 诊断(this.姓名,this.性別,parseInt(this.年齡),getAnswer())
+              router.pushUrl({
+              url: 'pages/DiagnoisisPage',
+              params:{
+                data:result.data
+              }
             }).catch((error: Error) => {
               // 错误提示
             })
