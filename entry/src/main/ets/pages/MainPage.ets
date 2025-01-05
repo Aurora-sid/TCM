@@ -1,6 +1,6 @@
 import prompt from '@ohos.prompt';
 import router from '@ohos.router';
-import {setPersonalInfo,getPersonalInfo,getAnswer,getSymptom} from '../../utils/data'
+import {setName,setAge,setSex,setPersonalInfo,getPersonalInfo,getAnswer,getSymptom} from '../../utils/data'
 @Entry
 @Component
 struct MainPage {
@@ -34,6 +34,7 @@ struct MainPage {
               //  .width('70%')
             .onChange((data) => {
               this.姓名 = data;
+              setName(data);
               console.info('user:' + data);
             });
         }
@@ -52,6 +53,7 @@ struct MainPage {
               .onChange((isChecked) => {
                 if (isChecked) {
                   this.性別 = '男';
+                  setSex(this.性別);
                   console.info('选择的性别是: 男');
                 }
               })
@@ -65,6 +67,7 @@ struct MainPage {
               .onChange((isChecked) => {
                 if (isChecked) {
                   this.性別 = '女';
+                  setSex(this.性別);
                   console.info('选择的性别是: 女');
                 }
               })
@@ -91,6 +94,7 @@ struct MainPage {
             .inputStyle()
             .onChange((data) => {
               this.年齡 = data;
+              setAge(data);
               console.info('age:' + data);
               this.validateAge();
             });
@@ -193,6 +197,18 @@ struct MainPage {
         .padding(3);
 
         Row() {
+          Row() {
+
+        }
+          .width('100%')
+          .backgroundColor(Color.White)
+        }
+        .height('15%')
+        .width('100%')
+        .backgroundColor('#FFFFE0')
+        .padding(3);
+
+        Row() {
           Button() {
             Text('提交检测')
               .fontSize(20)
@@ -210,6 +226,11 @@ struct MainPage {
            // getAnswer();
             setPersonalInfo(this.姓名+' '+this.性別+' '+this.年齡);
             console.info(getPersonalInfo() +' '+ getAnswer()+' ' + getSymptom());
+            router.pushUrl({
+              url: 'pages/DiagnoisisPage'
+            }).catch((error: Error) => {
+              // 错误提示
+            })
           })
 
         }

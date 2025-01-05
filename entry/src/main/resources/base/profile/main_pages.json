@@ -7,6 +7,7 @@
     "pages/LoginPages/ForgetPasswordPage",
     "pages/DectionPage",
     "pages/TonguePage",
-    "pages/HistoryPage"
+    "pages/HistoryPage",
+    "pages/DiagnoisisPage"
   ]
 }
