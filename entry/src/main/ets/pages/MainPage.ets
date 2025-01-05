@@ -1,6 +1,6 @@
 import prompt from '@ohos.prompt';
 import router from '@ohos.router';
-
+import {setPersonalInfo,getPersonalInfo,getAnswer,getSymptom} from '../../utils/data'
 @Entry
 @Component
 struct MainPage {
@@ -121,11 +121,11 @@ struct MainPage {
             .onClick(() => {
               router.pushUrl({
                 url: 'pages/Index',
-                params: {
-                  sex:this.性別,
-                  age:this.年齡,
-                  name:this.姓名
-                }
+                // params: {
+                //   sex:this.性別,
+                //   age:this.年齡,
+                //   name:this.姓名
+                // }
               }).catch((error: Error) => {
                 // 错误提示
               })
@@ -191,6 +191,34 @@ struct MainPage {
         .width('100%')
         .backgroundColor('#FFFF99')
         .padding(3);
+
+        Row() {
+          Button() {
+            Text('提交检测')
+              .fontSize(20)
+              .margin({ left: 90 })
+              .width('100%')
+          }
+          .width('80%')
+          .height('50%')
+          .margin({
+            left: 50,
+          })
+          .backgroundColor(Color.White)
+          .padding(3)
+          .onClick(() => {
+           // getAnswer();
+            setPersonalInfo(this.姓名+' '+this.性別+' '+this.年齡);
+            console.info(getPersonalInfo() +' '+ getAnswer()+' ' + getSymptom());
+          })
+
+        }
+        .height('10%')
+        .width('100%')
+        .backgroundColor('#FFFF99')
+        .padding(3);
+
+
       }
       .width('100%')
       .backgroundColor('#FFFFE0')

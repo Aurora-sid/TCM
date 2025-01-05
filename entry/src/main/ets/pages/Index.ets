@@ -1,16 +1,17 @@
-import router from '@system.router'
+//import router from '@system.router'
 import promptAction from '@ohos.promptAction';
 // import {提交问卷,上传图片} from '../../api/axios'
 import fs from '@ohos.file.fs';
 import util from '@ohos.util';
 import image from '@ohos.multimedia.image';
-
+import router from '@ohos.router';
+import {setAnswer} from '../../utils/data'
 @Entry
 @Component
 struct Index {
-  // @State name:string =  router.getParams()['name'] as string
-  // @State sex:string = router.getParams()['sex'] as string
-  // @State age:number = router.getParams()['age'] as number
+   // @State name:string =  router.getParams()['name'] as string
+   // @State sex:string = router.getParams()['sex'] as string
+   // @State age:number = router.getParams()['age'] as number
   @State message: string = 'Hello World'
   @State isSelect: boolean = false
   @State private option:Array<{label:string,answer:string}> =[
@@ -89,7 +90,9 @@ struct Index {
       Row() {
          Image($r('app.media.left'))
            .width(25)
-           .onClick(()=>{router.back()})
+           .onClick(()=>{
+             router.back()
+           })
 
         Text("调查问卷")
           .fontSize(20)
@@ -143,6 +146,14 @@ struct Index {
             .width('90%')
           })
           Button("提交")
+            .onClick(()=>{
+              let answersString = this.item.map(item => item.answer).join('');
+              setAnswer(answersString)
+              console.info(answersString)
+
+              router.back()
+
+            })
             .margin({top:20,bottom:100})
 
 

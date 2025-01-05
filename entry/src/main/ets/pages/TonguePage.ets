@@ -1,6 +1,7 @@
 import router from '@system.router'
 import {上传图片} from '../../api/axios'
 import promptAction from '@ohos.promptAction';
+import {setSymptom} from '../../utils/data'
 @Entry
 @Component
 struct TonguePage {
@@ -22,6 +23,7 @@ struct TonguePage {
         this.苔色分析 = val.TongueCoated
         this.舌裂纹分析 = val.TongueCrack
         this.表现 = val.Suggestion
+
         // this.onAccept(val,val2)
       },
     })
@@ -33,7 +35,9 @@ struct TonguePage {
         Row() {
           Image($r('app.media.left'))
             .width(25)
-            .onClick(()=>{router.back()})
+            .onClick(()=>{router.back()
+              setSymptom(this.表现+"舌头")
+            })
           Text("舌苔结果")
             .fontSize(20)
             .margin({ left: 100 });
