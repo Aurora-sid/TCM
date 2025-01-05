@@ -194,7 +194,7 @@ struct MainPage {
          }
         .height('10%')
         .width('100%')
-        .backgroundColor('#FFFF99')
+         .backgroundColor('#FFFFE0')
         .padding(3);
 
         Row() {
@@ -241,7 +241,7 @@ struct MainPage {
         }
         .height('10%')
         .width('100%')
-        .backgroundColor('#FFFF99')
+        .backgroundColor('#FFFFE0')
         .padding(3);
 
 

@@ -45,6 +45,92 @@ struct HistoryPage {
         .height('9%')
         .backgroundColor(Color.Gray)
         .padding(10);
+
+        Row(){
+          Scroll(){
+            Column() {
+              ForEach(this.data, (item: {
+                id: number,
+                username: string,
+                sex: string,
+                age: number,
+                answers: string,
+                suggestion: string
+              }, index) => {
+                Row(){
+                  Row() {
+                    Column(){
+                    Text('诊断记录'+ ' '+item.id)
+                      .fontSize(18)
+                      .margin({
+                        left: 15,
+                        top: 3,
+                        bottom: 5
+                      })
+                      .width('40%')
+                      .height('20%')
+
+                      Row(){
+                        Row(){
+                          Text('姓名：')
+                            .fontSize(20)
+                          Text(item.username)
+                            .fontSize(20)
+                          Text('  性别：')
+                            .fontSize(20)
+                          Text(item.sex)
+                            .fontSize(20)
+                        }
+                      }
+                      .height('20%')
+                      Button("详细信息")
+                        .width('80%')
+                        .fontWeight(15)
+                        .onClick(() => {
+                          router.pushUrl({
+                            url: 'pages/CasePage',
+                            params:{
+                              data:item
+                            }
+                          }).catch((error: Error) => {
+                            // 错误提示
+                          })
+                        })
+                        .fontColor(Color.Gray)
+                        .height('30%')
+                         .margin({
+                         top:10
+                      })
+                       .backgroundColor('#FFFF99')
+                        .padding(3)
+                        .margin({
+                          top:15
+                        })
+                       .borderRadius(0)
+
+                  }
+                    .width('100%')
+                    .height('100%')
+                  }
+                }
+                .borderColor(Color.Gray)
+                .borderRadius(10)
+                .borderWidth(5)
+                .margin({
+                  top:'15vp'
+                })
+                .width('90%')
+                .height('20%')
+
+              })
+            }
+            .width('100%')
+          //  .height('100%')
+          }
+
+        }
+        .backgroundColor(Color.White)
+
       }
       .width('100%')
       .backgroundColor(Color.White)

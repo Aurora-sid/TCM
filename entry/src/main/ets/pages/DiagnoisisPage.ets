@@ -31,7 +31,7 @@ struct DiagnoisisPage {
 
         Row() {
           Text("姓名:")
-            .fontSize(16)
+            .fontSize(18)
             .margin({
               left: 15,
               top : 10
@@ -54,7 +54,7 @@ struct DiagnoisisPage {
 
         Row() {
           Text("性别:")
-            .fontSize(16)
+            .fontSize(18)
             .margin({
               left: 15,
               top : 10
@@ -77,7 +77,7 @@ struct DiagnoisisPage {
 
         Row() {
           Text("年龄:")
-            .fontSize(16)
+            .fontSize(18)
             .margin({
               left: 15,
               top : 10
@@ -99,39 +99,16 @@ struct DiagnoisisPage {
         .padding(3);
 
         Row() {
-          Text("健康状况:")
-            .fontSize(16)
-            .margin({
-              left: 15,
-              top : 10
-            })
-            .width('20%')
-          Column() {
-            Text(this.data.result)
-            Text(this.data.suggestion)
-              .fontSize(20)
-              .margin({
-                left: 15,
-                top : 10
-              })
-          }
-
-
-        }
-        .height('20%')
-        .backgroundColor('#FFFFE0')
-        .padding(3);
-
-        Row() {
-          Text("舌头诊断:")
-            .fontSize(16)
+          Text("体质:")
+            .fontSize(18)
             .margin({
               left: 15,
               top : 10
             })
             .width('20%')
           Row() {
-            Text(getSymptom())
+            // Text(getAge())
+            Text(this.data.result)
               .fontSize(20)
               .margin({
                 left: 15,
@@ -139,6 +116,56 @@ struct DiagnoisisPage {
               })
           }
           .width('70%')
+
+        }
+        .height('10%')
+        .backgroundColor('#FFFFE0')
+        .padding(3);
+
+        Row() {
+          Text("建议:")
+            .fontSize(18)
+            .margin({
+              left: 15,
+              top : 10
+            })
+            .width('20%')
+
+            Scroll() {
+            Text(this.data.suggestion)
+              .fontSize(20)
+              .margin({
+                left: 1,
+                top: 10
+              })
+          }.width('70%')
+            .height('60%')
+        }
+        .height('30%')
+        .backgroundColor('#FFFFE0')
+        .padding(3);
+
+        Row() {
+
+          Text("舌头诊断:")
+            .fontSize(18)
+            .margin({
+              left: 15,
+              top: 10
+            })
+            .width('20%')
+          Row() {
+            Scroll() {
+              Text(getSymptom())
+                .fontSize(20)
+                .margin({
+                  left: 15,
+                  top: 10
+                })
+            }
+            .width('80%')
+          }
+          .width('80%')
 
         }
         .height('20%')

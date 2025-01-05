@@ -8,6 +8,7 @@
     "pages/DectionPage",
     "pages/TonguePage",
     "pages/HistoryPage",
-    "pages/DiagnoisisPage"
+    "pages/DiagnoisisPage",
+    "pages/CasePage"
   ]
 }

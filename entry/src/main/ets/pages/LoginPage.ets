@@ -162,7 +162,7 @@ struct Login {
       .height('100%')
 
     }
-    .backgroundImage('/pages/Picture/04.jpg')
+    .backgroundImage('/pages/Picture/06.png')
     .backgroundImageSize(1)
     .width('100%')
     .height('100%')
