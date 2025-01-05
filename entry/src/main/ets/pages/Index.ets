@@ -12,6 +12,7 @@ struct Index {
   // @State sex:string = router.getParams()['sex'] as string
   // @State age:number = router.getParams()['age'] as number
   @State message: string = 'Hello World'
+  @State isSelect: boolean = false
   @State private option:Array<{label:string,answer:string}> =[
     { label:"没有", answer:"A" },
     { label:"很少", answer:"B" },
@@ -20,10 +21,10 @@ struct Index {
     { label:"总是", answer:"E" }
   ]
   @State private item:Array<{question:string,answer:string}> =[
-    {question: "您容易失眠吗?", answer: ""},
+    {question: "您容易失眠吗?", answer: "A"},
     {question: "您容易忘事(健忘)吗?", answer: ""},
     {question: "您容易疲乏吗?", answer: ""},
-    {question: "您感到闷闷不乐、情绪低沉吗?", answer: ""},
+    {question: "您感到闷闷不乐、情绪低沉吗?", answer: "E"},
     {question: "您比一般人耐受不了寒冷(冬天的寒冷，夏天的冷空调、电扇等)吗?", answer: ""},
     {question: "您精力充沛吗?", answer: ""},
     // {question: "您能适应外界自然和社会环境的变化吗?", answer: ""},
@@ -117,8 +118,10 @@ struct Index {
 
               Row() {
                 ForEach(this.option,(item2:{label:string,answer:string},index2:Number)=>{
+
                   Row(){
                     Radio({ value: item2.answer, group: item.question })
+                      .checked((item.answer !== '')&&((item.answer.codePointAt(0) - 'A'.codePointAt(0))==index2.valueOf())?true:false)
                       .onChange((isChecked: boolean) => {
                         if(isChecked) {
                           //需要执行的操作
@@ -141,36 +144,8 @@ struct Index {
           })
           Button("提交")
             .margin({top:20,bottom:100})
-            .onClick(()=>{
 
 
-              fs.open('../pages/Picture/01w.jpg', fs.OpenMode.READ_ONLY).then((file) => {
-
-                      console.info("uploadImage:file fd: " + file);
-
-                      const imageSource = image.createImageSource(file.fd);
-                      const imagePackerApi: image.ImagePacker = image.createImagePacker();
-                      let packOpts: image.PackingOption = { format: 'image/jpeg', quality: 30 };
-
-                      imagePackerApi.packing(imageSource, packOpts).then((readBuffer) => {
-                        let bufferArr = new Uint8Array(readBuffer)
-                        let help = new util.Base64Helper
-                        var base = help.encodeToStringSync(bufferArr)
-                        console.info("uploadImage:base is : " + base);
-
-                          //此处进行网络请求，上传到服务器
-
-                      });
-                    }).catch((err) => {
-                      console.info("uploadImage:copy file failed with error message: " + err.message + ", error code: " + err.code);
-                    });
-
-              promptAction.showToast({
-                message: '提交成功',
-                duration: 4000, // 弹窗持续时间
-                bottom: '100vp'
-              })
-            })
         }
         .width('100%')
       }

@@ -1,6 +1,6 @@
 // api.ts
 import http from '../utils/request';
-import * as Request from "D:/Huawei/TCM/entry/src/main/utils/request";
+
 // import { Result } from '../utils/request';
 interface LoginResponse {
   success?: boolean;
@@ -104,8 +104,8 @@ export const 提交问卷=(username:string,sex:string,age:number,answers: string
   return http.post('judge/writeQuestionnaire',{username,sex,age,answers})
 }
 
-export const 上传图片=(image)=>{
-  return http.post('judge/upload',{image})
+export const 上传图片=(image:string)=>{
+  return http.get('judge/upload',{image})
 }
 
 

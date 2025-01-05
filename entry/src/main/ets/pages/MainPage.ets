@@ -148,7 +148,13 @@ struct MainPage {
           .backgroundColor('#FFFF99')
           .padding(3)
           .onClick(() => {
-            prompt.showToast({ message: '舌苔检测功能暂未开放' });
+
+            router.pushUrl({
+              url: 'pages/TonguePage',
+            }).catch((error: Error) => {
+              // 错误提示
+            })
+
           });
         }
           .width('40%')
