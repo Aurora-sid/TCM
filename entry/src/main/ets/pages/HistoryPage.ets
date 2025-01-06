@@ -123,6 +123,8 @@ struct HistoryPage {
                 .height('20%')
 
               })
+              Column() {
+              }.height(500)
             }
             .width('100%')
           //  .height('100%')

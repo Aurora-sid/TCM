@@ -26,15 +26,23 @@ struct Login {
     Row() {
       Column() {
         // LOGO
-        Image($r("app.media.register"))
-          .width('80vp') // 80 = '80vp'
-          .height('80vp')
-          .margin({ top: '180vp' })
-          .borderRadius(100)
+        // Image($r("app.media.register"))
+        //   .width('80vp') // 80 = '80vp'
+        //   .height('80vp')
+        //   .margin({ top: '180vp' })
+        //   .borderRadius(100)
+        Row() {
+        }
+        .width('100%')
+        .height('20%')
+
         // 登录
         Text(this.message)
           .fontSize('25fp')
           .fontWeight(FontWeight.Bold)
+          .margin({
+            bottom: '30vp',
+          })
         // 用户名，密码输入信息
         TextInput({ placeholder: '请输入用户名'})
         //  .placeholderColor(Color.Black) // 设置占位符颜色为红色
@@ -58,19 +66,20 @@ struct Login {
           //  console.info('password: ' + data)
           })
         // 文字提示
-        Row() {
-          Text('短信验证码登录')
-            .textStyle() // 公共样式函数
-          Text('忘记密码')
-            .textStyle()
-        }
-        .width('100%')
-        .justifyContent(FlexAlign.SpaceAround) // 子组件对齐方式
+        // Row() {
+        //   Text('短信验证码登录')
+        //     .textStyle() // 公共样式函数
+        //   Text('忘记密码')
+        //     .textStyle()
+        // }
+        // .width('100%')
+        // .justifyContent(FlexAlign.SpaceAround) // 子组件对齐方式
 
         // 登录按钮
         Button('登录', { type: ButtonType.Capsule, stateEffect: true }) // 按钮类型
           .width('90%')
           .margin('10vp')
+          .backgroundColor(Color.Pink)
           .onClick(async () => {
             if (this.user == '' || this.password == '') {
               // 不可跳转,弹窗提示
@@ -127,7 +136,7 @@ struct Login {
         Row(){
           Text('注册账号')
             .textStyle()
-            .fontColor(Color.Blue)
+            .fontColor(Color.Orange)
             .onClick(() => {
               router.pushUrl({
                 url: 'pages/LoginPages/RegisterPage'
@@ -137,6 +146,9 @@ struct Login {
             })
         }
         .width('100%')
+        .margin({
+          top: '50vp',
+        })
         .justifyContent(FlexAlign.SpaceAround)
 
         Row() {
@@ -162,7 +174,7 @@ struct Login {
       .height('100%')
 
     }
-    .backgroundImage('/pages/Picture/06.png')
+ //   .backgroundImage('/pages/Picture/06.png')
     .backgroundImageSize(1)
     .width('100%')
     .height('100%')

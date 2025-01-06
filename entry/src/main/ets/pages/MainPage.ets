@@ -15,13 +15,13 @@ struct MainPage {
     Row() {
       Column() {
         Row() {
-          Text("智能中医体质识别")
+          Text("中医体质识别")
             .fontSize(20)
             .margin({ left: 100 });
         }
         .width('100%')
         .height('9%')
-        .backgroundColor(Color.Yellow)
+        .backgroundColor(Color.Grey)
         .padding(10);
 
         Row() {
@@ -40,7 +40,7 @@ struct MainPage {
             });
         }
         .height('9%')
-        .backgroundColor('#FFFFE0')
+        .backgroundColor(Color.White)
         .padding(3);
 
         // 性别选择行
@@ -82,7 +82,7 @@ struct MainPage {
           .width('80%')
         }
         .height('9%')
-        .backgroundColor('#FFFFE0')
+        .backgroundColor(Color.White)
         .padding(3);
 
         Row() {
@@ -105,22 +105,28 @@ struct MainPage {
           }
         }
         .height('9%')
-        .backgroundColor('#FFFFE0')
+        .backgroundColor(Color.White)
         .padding(3);
 
         // 问卷和舌苔检测按钮
         Row() {
           Column() {
-            Button() {
-              Text('健康问卷')
-                .fontSize(20)
-                .margin({ left: 15 })
-                .width('100%')
-                .height('100%')
-            }
+            Button("调查问卷")
+              .fontSize(20)
+              .fontColor(Color.Black)
+            // {
+            //   Text('健康问卷')
+            //     .fontSize(20)
+            //     .margin({ left: 15 })
+            //     .width('100%')
+            //     .height('100%')
+            // }
             .width('80%')
             .height('50%')
-            .backgroundColor('#FFFF99')
+            .backgroundColor(Color.Green)
+              .margin({
+                left: 30,
+              })
             .padding(3)
             .borderRadius(0)
             .onClick(() => {
@@ -136,37 +142,37 @@ struct MainPage {
               })
             })
           }
-          .width('40%')
+          .width('100%')
 
           Column() {}
           .width('15%')
 
-          Column() {
-          Button() {
-            Text('舌苔检测')
-              .fontSize(20)
-              .margin({ left: 15 })
-              .width('100%')
-          }
-          .width('80%')
-          .height('50%')
-          .backgroundColor('#FFFF99')
-          .padding(3)
-          .onClick(() => {
-
-            router.pushUrl({
-              url: 'pages/TonguePage',
-            }).catch((error: Error) => {
-              // 错误提示
-            })
-
-          });
-        }
-          .width('40%')
+        //   Column() {
+        //   Button() {
+        //     Text('舌苔检测')
+        //       .fontSize(20)
+        //       .margin({ left: 15 })
+        //       .width('100%')
+        //   }
+        //   .width('80%')
+        //   .height('50%')
+        //   .backgroundColor('#FFFF99')
+        //   .padding(3)
+        //   .onClick(() => {
+        //
+        //     router.pushUrl({
+        //       url: 'pages/TonguePage',
+        //     }).catch((error: Error) => {
+        //       // 错误提示
+        //     })
+        //
+        //   });
+        // }
+        //   .width('40%')
         }
         .height('20%')
         .width('100%')
-        .backgroundColor('#FFFFE0')
+        .backgroundColor(Color.White)
         .padding(3);
 
          Row() {
@@ -181,7 +187,7 @@ struct MainPage {
            .margin({
              left: 50,
            })
-           .backgroundColor(Color.White)
+           .backgroundColor(Color.Green)
            .padding(3)
            .onClick(() => {
              router.pushUrl({
@@ -192,26 +198,15 @@ struct MainPage {
            })
 
          }
-        .height('10%')
-        .width('100%')
-         .backgroundColor('#FFFFE0')
-        .padding(3);
-
-        Row() {
-          Row() {
-
-        }
-          .width('100%')
-          .backgroundColor(Color.White)
-        }
         .height('15%')
         .width('100%')
-        .backgroundColor('#FFFFE0')
+         .backgroundColor(Color.White)
         .padding(3);
+
 
         Row() {
           Button() {
-            Text('提交检测')
+            Text('提交')
               .fontSize(20)
               .margin({ left: 90 })
               .width('100%')
@@ -221,13 +216,14 @@ struct MainPage {
           .margin({
             left: 50,
           })
-          .backgroundColor(Color.White)
+          .backgroundColor(Color.Green)
           .padding(3)
           .onClick(async () => {
            // getAnswer();
             setPersonalInfo(this.姓名+' '+this.性別+' '+this.年齡);
             console.info(getPersonalInfo() +' '+ getAnswer()+' ' + getSymptom());
            let result =  await 诊断(this.姓名,this.性別,parseInt(this.年齡),getAnswer())
+         //   let result =  await 诊断(this.姓名,this.性別,parseInt(this.年齡),'BCCBBDEBCCAABCDDBBBBBCBBCDCBBBBBCABBCBBBCBBBBBACBBBABBBCDDAA')
               router.pushUrl({
               url: 'pages/DiagnoisisPage',
               params:{
@@ -239,18 +235,16 @@ struct MainPage {
           })
 
         }
-        .height('10%')
+        .height('15%')
         .width('100%')
-        .backgroundColor('#FFFFE0')
+        .backgroundColor(Color.White)
         .padding(3);
-
-
       }
       .width('100%')
-      .backgroundColor('#FFFFE0')
+      .backgroundColor(Color.White)
       .height('100%');
     }
-    .backgroundColor('#FFFFE0')
+    //.backgroundColor(Color.White)
     .height('100%');
   }
 

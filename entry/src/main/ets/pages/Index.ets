@@ -96,11 +96,11 @@ struct Index {
 
         Text("调查问卷")
           .fontSize(20)
-          .margin({ left: 130 })
+          .margin({ left: 110 })
       }
       .width('100%')
       .height('10%')
-      .backgroundColor('#FFD700')
+      .backgroundColor(Color.Pink)
       .borderRadius(10)
       .justifyContent(FlexAlign.Start)
       .padding(10)
@@ -114,7 +114,8 @@ struct Index {
             Column() {
               Row() {
                 Text((index.valueOf() + 1).toString() + "、" + item.question)
-
+                  .fontSize(18)
+                  .fontColor(Color.Red)
               }
               .justifyContent(FlexAlign.Start)
               .width("100%")
@@ -133,6 +134,7 @@ struct Index {
                         }
                       })
                     Text(item2.label)
+                      .fontColor(Color.Blue)
                   }
 
                 })
@@ -143,6 +145,7 @@ struct Index {
             .backgroundColor(Color.White)
             .padding(5)
             .margin(5)
+            .height('10%')
             .width('90%')
           })
           Button("提交")

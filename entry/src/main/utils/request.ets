@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosR
 
 // axios 请求配置
 const config = {//47.92.137.107
-  baseURL:'http://192.168.104.244:8081/',
+  baseURL:'http://47.92.137.107:8081/',
   // baseURL: '/api',
   timeout: 100000000
 }
